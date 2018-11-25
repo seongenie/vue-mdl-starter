@@ -1,0 +1,14 @@
+<template>
+  <tr>
+    <td class="mdl-data-table__cell--non-numeric">Acrylic (Transparent)</td>
+    <td>25</td>
+    <td>$2.90</td>
+  </tr>
+</template>
+
+<script>
+export default {};
+</script>
+
+<style>
+</style>
