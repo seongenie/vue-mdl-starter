@@ -1,6 +1,6 @@
-# 맛집 지도
+# vue-mdl-starter
 
-> 개발중
+Vuejs project for start. It contains utils for restful, spinner, etc... and material designed components.
 
 ## Build Setup
 
