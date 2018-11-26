@@ -8,6 +8,14 @@
     </div>
     <Button title="SIGN IN" buttonStyle="mdl-cell--1-col"/>
     <Button title="SIGN UP" buttonStyle="mdl-cell--1-col"/>
+    <div class="demo-card-wide mdl-card mdl-shadow--2dp">
+      <div class="mdl-card__title"><TextField placeHolder="Username" :floating="true"/></div>
+      <div class="mdl-card__title"><TextField type="password" placeHolder="Password" :floating="true"/></div>
+      <div class="mdl-card__title">
+        <Button title="로그인" @click="signIn"/>
+        <Button title="회원가입" @click="signUp"/>
+      </div>
+    </div>
   </div>
 </template>
 <script>
@@ -16,7 +24,15 @@ import Button from '../button/Button';
 
 export default {
   name: 'Login',
-  components: { TextField, Button }
+  components: { TextField, Button },
+  methods: {
+    signIn() {
+      this.$emit('onSignIn');
+    },
+    signUp() {
+      this.$emit('onSignUp');
+    }
+  }
 };
 </script>
 <style scoped>

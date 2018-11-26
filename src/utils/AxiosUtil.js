@@ -23,9 +23,9 @@ const axiosUtil = (() => {
       const config = request._getConfig({ params: query });
       const result = optionAfterProcessing
         ? await request._resolvePromise(axiosInstance.get(url, config))
-        : await axiosInstance.get(url, config).catch(err => {
-            request._error(err, true);
-          });
+        : await axiosInstance.get(url, config).catch((err) => {
+          request._error(err, true);
+        });
       loading.show(false);
       return result;
     },
@@ -39,12 +39,10 @@ const axiosUtil = (() => {
       loading.show(true);
       const config = request._getConfig();
       const result = optionAfterProcessing
-        ? await request._resolvePromise(
-            axiosInstance.post(url, payload, config)
-          )
-        : await axiosInstance.post(url, payload, config).catch(err => {
-            request._error(err, true);
-          });
+        ? await request._resolvePromise(axiosInstance.post(url, payload, config))
+        : await axiosInstance.post(url, payload, config).catch((err) => {
+          request._error(err, true);
+        });
       loading.show(false);
       return result;
     },
@@ -59,9 +57,9 @@ const axiosUtil = (() => {
       const config = request._getConfig();
       const result = optionAfterProcessing
         ? await request._resolvePromise(axiosInstance.put(url, payload, config))
-        : await axiosInstance.put(url, payload, config).catch(err => {
-            request._error(err, true);
-          });
+        : await axiosInstance.put(url, payload, config).catch((err) => {
+          request._error(err, true);
+        });
       loading.show(false);
       return result;
     },
@@ -76,9 +74,9 @@ const axiosUtil = (() => {
       const config = request._getConfig({ params: query });
       const result = optionAfterProcessing
         ? await request._resolvePromise(axiosInstance.delete(url, config))
-        : await axiosInstance.delete(url, config).catch(err => {
-            request._error(err, true);
-          });
+        : await axiosInstance.delete(url, config).catch((err) => {
+          request._error(err, true);
+        });
       loading.show(false);
       return result;
     },
@@ -115,22 +113,19 @@ const axiosUtil = (() => {
      */
     _resolvePromise(promise) {
       return promise
-        .then(response => {
+        .then((response) => {
           if (response.headers[Constants.TOKEN_HEADER]) {
-            sessionStorage.setItem(
-              Constants.TOKEN,
-              response.headers[Constants.TOKEN_HEADER]
-            );
+            sessionStorage.setItem(Constants.TOKEN, response.headers[Constants.TOKEN_HEADER]);
           }
           return response;
         })
-        .catch(err => {
+        .catch((err) => {
           const token = err.response.headers[Constants.TOKEN_HEADER];
           if (token) {
             sessionStorage.setItem(Constants.TOKEN, token);
-          } else {
-            sessionStorage.removeItem(Constants.TOKEN);
+            return;
           }
+          sessionStorage.removeItem(Constants.TOKEN);
         });
     }
   };

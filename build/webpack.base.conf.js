@@ -35,7 +35,6 @@ module.exports = {
     extensions: ['.js', '.vue', '.json'],
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
-      'naver-map': 'src/assets/js/naver-map-v3.min.js',
       '@': resolve('src'),
     }
   },

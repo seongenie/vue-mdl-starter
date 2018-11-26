@@ -1,8 +1,7 @@
 <template>
   <button
-    :class="['mdl-button', 'mdl-js-button',
-      'mdl-button--raised', 'mdl-js-ripple-effect',
-      'mdl-button--accent', buttonStyle]"
+    :class="['mdl-button', 'mdl-js-button', 'mdl-button--raised',
+      'mdl-button--colored', buttonStyle]"
     @click="click"
   >
   {{title}}
@@ -22,3 +21,6 @@ export default {
   }
 };
 </script>
+<style>
+.mdl-button--raised.mdl-button--colored:hover{background-color: rgb(200,67,70)}
+</style>
