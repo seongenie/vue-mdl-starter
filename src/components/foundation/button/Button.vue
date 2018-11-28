@@ -2,8 +2,7 @@
   <button
     :class="['mdl-button', 'mdl-js-button', 'mdl-button--raised',
       'mdl-button--colored', buttonStyle]"
-    @click="click"
-  >
+    @click="click">
   {{title}}
   </button>
 </template>

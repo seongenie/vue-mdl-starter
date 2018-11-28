@@ -1,16 +1,12 @@
 <template>
   <div class="Login">
-    <div class="mdl-cell--2-col">
-      <TextField placeHolder="Username" :floating="true"/>
-    </div>
-    <div class="mdl-cell--2-col">
-      <TextField type="password" placeHolder="Password" :floating="true"/>
-    </div>
-    <Button title="SIGN IN" buttonStyle="mdl-cell--1-col"/>
-    <Button title="SIGN UP" buttonStyle="mdl-cell--1-col"/>
     <div class="demo-card-wide mdl-card mdl-shadow--2dp">
-      <div class="mdl-card__title"><TextField placeHolder="Username" :floating="true"/></div>
-      <div class="mdl-card__title"><TextField type="password" placeHolder="Password" :floating="true"/></div>
+      <div class="mdl-card__title">
+        <TextField placeHolder="Username" :floating="true"/>
+      </div>
+      <div class="mdl-card__title">
+        <TextField type="password" placeHolder="Password" :floating="true"/>
+      </div>
       <div class="mdl-card__title">
         <Button title="로그인" @click="signIn"/>
         <Button title="회원가입" @click="signUp"/>

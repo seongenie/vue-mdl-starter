@@ -1,12 +1,12 @@
 <template>
-  <div class="mdl-tooltip" :data-mdl-for="matchId">{{label}}</div>
+  <div class="mdl-tooltip" :data-mdl-for="id">{{label}}</div>
 </template>
 <script>
 export default {
   name: 'Tooltip',
   props: {
     label: { type: String },
-    matchId: { type: String, required: true }
+    id: { type: String, required: true }
   }
 };
 </script>

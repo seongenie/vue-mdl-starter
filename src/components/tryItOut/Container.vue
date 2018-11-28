@@ -6,11 +6,18 @@
     <div class="try-component">
       <Button title="버튼"/>
       <Button title="툴팁" id="tooltip"/>
-      <Tooltip matchId="tooltip" label="This is a tooltip component"/>
+      <Tooltip id="tooltip" label="This is a tooltip component"/>
       <IconButton label="add" />
     </div>
     <div class="try-component"><Login/></div>
     <div class="try-component"><Radio :radioValue="radioValue" name="tryRadio"></Radio></div>
+    <div class="try-component"><Button title="Dialog" @onClick="showDialog"/></div>
+    <Dialog ref="dialog" title="Dialog" width=800 height=500>
+      <div slot="content">
+        <Table/>
+        <Button title="닫기" @onClick="closeDialog"/>
+      </div>
+    </Dialog>
   </div>
 </template>
 
@@ -23,14 +30,23 @@ import Button from '../foundation/button/Button';
 import IconButton from '../foundation/button/IconButton';
 import Tooltip from '../foundation/tooltip/Tooltip';
 import Radio from '../foundation/radio/Radio';
+import Dialog from '../foundation/dialog/Dialog';
 
 export default {
   name: 'TryItOut',
-  components: { Checkbox, TextField, Table, Login, Button, IconButton, Tooltip, Radio },
+  components: { Checkbox, TextField, Table, Login, Button, IconButton, Tooltip, Radio, Dialog },
   data() {
     return {
       radioValue: [{ value: 'value', label: 'First', checked: true }, { value: 'value', label: 'Second', checked: true }]
     };
+  },
+  methods: {
+    showDialog() {
+      this.$refs.dialog.$el.showModal();
+    },
+    closeDialog() {
+      this.$refs.dialog.$el.close();
+    }
   }
 };
 </script>
