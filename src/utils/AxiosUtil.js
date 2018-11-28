@@ -1,13 +1,13 @@
 import axios from 'axios';
 import qs from 'qs';
-import { loading } from './SpinnerUtil';
+// import spinner from './SpinnerUtil';
 import ToastUtil from './ToastUtil';
 import Constants from '../constants/Constants';
 
 const axiosInstance = axios.create({
   baseURL: `${window.location.origin}/was`,
-  headers: { 'X-Requested-With': Constants.XMLHttpRequest },
-  paramsSerializer: params => qs.stringfy(params, { allowdots: true })
+  // headers: { 'X-Requested-With': Constants.XMLHttpRequest },
+  paramsSerializer: params => qs.stringify(params, { allowdots: true })
 });
 
 const axiosUtil = (() => {
@@ -19,14 +19,14 @@ const axiosUtil = (() => {
      * @param {boolean} optionAfterProcessing
      */
     async get(url, query = {}, optionAfterProcessing = true) {
-      loading.show(true);
+      // spinner.show(true);
       const config = request._getConfig({ params: query });
       const result = optionAfterProcessing
         ? await request._resolvePromise(axiosInstance.get(url, config))
         : await axiosInstance.get(url, config).catch((err) => {
           request._error(err, true);
         });
-      loading.show(false);
+      // spinner.show(false);
       return result;
     },
     /**
@@ -36,14 +36,14 @@ const axiosUtil = (() => {
      * @param {boolean} optionAfterProcessing
      */
     async post(url, payload = {}, optionAfterProcessing = true) {
-      loading.show(true);
+      // spinner.show(true);
       const config = request._getConfig();
       const result = optionAfterProcessing
         ? await request._resolvePromise(axiosInstance.post(url, payload, config))
         : await axiosInstance.post(url, payload, config).catch((err) => {
           request._error(err, true);
         });
-      loading.show(false);
+      // spinner.show(false);
       return result;
     },
     /**
@@ -53,14 +53,14 @@ const axiosUtil = (() => {
      * @param {boolean} optionAfterProcessing
      */
     async put(url, payload = {}, optionAfterProcessing = true) {
-      loading.show(true);
+      // spinner.show(true);
       const config = request._getConfig();
       const result = optionAfterProcessing
         ? await request._resolvePromise(axiosInstance.put(url, payload, config))
         : await axiosInstance.put(url, payload, config).catch((err) => {
           request._error(err, true);
         });
-      loading.show(false);
+      // spinner.show(false);
       return result;
     },
     /**
@@ -70,14 +70,14 @@ const axiosUtil = (() => {
      * @param {boolean} optionAfterProcessing
      */
     async delete(url, query = {}, optionAfterProcessing = true) {
-      loading.show(true);
+      // spinner.show(true);
       const config = request._getConfig({ params: query });
       const result = optionAfterProcessing
         ? await request._resolvePromise(axiosInstance.delete(url, config))
         : await axiosInstance.delete(url, config).catch((err) => {
           request._error(err, true);
         });
-      loading.show(false);
+      // spinner.show(false);
       return result;
     },
     /**
@@ -86,7 +86,7 @@ const axiosUtil = (() => {
      * @param {boolean} withoutAlert
      */
     _error(err, withoutAlert) {
-      loading.show(false);
+      // spinner.show(false);
       const errorMessage = err.response
         ? err.response.data.errorMessage
         : err.message;

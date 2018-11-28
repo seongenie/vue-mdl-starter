@@ -1,6 +1,8 @@
-export const loading = (() => {
+const loading = (() => {
   const spinner = {
-    show(isShow) {}
+    show(isShow) {
+      console.log(isShow);
+    }
   };
 
   return {
@@ -8,5 +10,4 @@ export const loading = (() => {
   };
 })();
 
-const util = '';
-export default util;
+export default loading;

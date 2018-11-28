@@ -12,12 +12,13 @@
     <div class="try-component"><Login/></div>
     <div class="try-component"><Radio :radioValue="radioValue" name="tryRadio"></Radio></div>
     <div class="try-component"><Button title="Dialog" @onClick="showDialog"/></div>
-    <Dialog ref="dialog" title="Dialog" width=800 height=500>
+    <Dialog ref="dialog" title="Dialog" :width=800 :height=500>
       <div slot="content">
         <Table/>
         <Button title="닫기" @onClick="closeDialog"/>
       </div>
     </Dialog>
+    <div class="try-component"><Button title="API_GET" @onClick="getAPI"/></div>
   </div>
 </template>
 
@@ -31,6 +32,7 @@ import IconButton from '../foundation/button/IconButton';
 import Tooltip from '../foundation/tooltip/Tooltip';
 import Radio from '../foundation/radio/Radio';
 import Dialog from '../foundation/dialog/Dialog';
+import api from '../../api/Sample';
 
 export default {
   name: 'TryItOut',
@@ -46,6 +48,10 @@ export default {
     },
     closeDialog() {
       this.$refs.dialog.$el.close();
+    },
+    async getAPI() {
+      const response = await api.getSample();
+      console.log(response);
     }
   }
 };
