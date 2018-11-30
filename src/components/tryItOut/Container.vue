@@ -19,6 +19,7 @@
       </div>
     </Dialog>
     <div class="try-component"><Button title="API_GET" @onClick="getAPI"/></div>
+    <div class="try-component"><Spinner/></div>
   </div>
 </template>
 
@@ -32,14 +33,26 @@ import IconButton from '../foundation/button/IconButton';
 import Tooltip from '../foundation/tooltip/Tooltip';
 import Radio from '../foundation/radio/Radio';
 import Dialog from '../foundation/dialog/Dialog';
+import Spinner from '../foundation/spinner/Spinner';
 import api from '../../api/Sample';
 
 export default {
   name: 'TryItOut',
-  components: { Checkbox, TextField, Table, Login, Button, IconButton, Tooltip, Radio, Dialog },
+  components: {
+    Checkbox,
+    TextField,
+    Table,
+    Login,
+    Button,
+    IconButton,
+    Tooltip,
+    Radio,
+    Dialog,
+    Spinner
+  },
   data() {
     return {
-      radioValue: [{ value: 'value', label: 'First', checked: true }, { value: 'value', label: 'Second', checked: true }]
+      radioValue: [{ value: 'value', label: 'First', checked: true }, { value: 'value', label: 'Second' }]
     };
   },
   methods: {

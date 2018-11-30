@@ -1,5 +1,5 @@
 <template>
-  <table :class="['mdl-data-table', 'mdl-js-data-table', 'mdl-shadow--2dp', chcekBoxStyle]">
+  <table v-mdl :class="['mdl-data-table', 'mdl-js-data-table', 'mdl-shadow--2dp', chcekBoxStyle]">
     <thead>
       <tr>
         <th class="mdl-data-table__cell--non-numeric">Material</th>

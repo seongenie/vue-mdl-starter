@@ -1,0 +1,276 @@
+<template>
+  <header class="mdl-layout__header mdl-layout__header--scroll mdl-color--primary">
+    <div class="mdl-layout--large-screen-only mdl-layout__header-row">
+      <h3>{{title}}</h3>
+    </div>
+    <div class="mdl-layout__tab-bar mdl-js-ripple-effect mdl-color--primary-dark">
+      <a v-for="(tab, index) in (tabs)" :key="`${tab.title}-${index}`"
+        :class="['mdl-layout__tab', tab.active ? 'is-active' : '']"
+        @click="route(tab.uri)">
+        {{tab.title}}
+      </a>
+    </div>
+  </header>
+</template>
+
+<script>
+export default {
+  name: 'Header',
+  props: {
+    title: { type: String },
+    tabs: { type: Array }
+  },
+  methods: {
+    route(uri) {
+      this.tabs.forEach((tab) => {
+        if (tab.uri === uri) tab.active = true;
+        else tab.active = false;
+      });
+      this.$router.replace(uri);
+    }
+  }
+};
+</script>
+<style>
+.mdl-layout__header-row {
+  padding-left: 40px;
+}
+.mdl-layout:not(.is-small-screen) .mdl-layout__tab-bar,
+.mdl-layout:not(.is-small-screen) .mdl-layout__tab-bar-container {
+  overflow: visible;
+}
+.mdl-layout__tab-bar-container {
+  height: 64px;
+}
+.mdl-layout__tab-bar {
+  padding: 0;
+  padding-left: 16px;
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+}
+.mdl-layout__tab-bar .mdl-layout__tab {
+  height: 64px;
+  line-height: 64px;
+}
+.mdl-layout__tab-bar .mdl-layout__tab.is-active::after {
+  background-color: white;
+  height: 4px;
+}
+
+html, body {
+  font-family: 'Roboto', 'Helvetica', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+.mdl-layout.is-small-screen .mdl-layout__header-row h3 {
+  font-size: inherit;
+}
+.mdl-layout__tab-bar-button {
+  display: none;
+}
+.mdl-layout.is-small-screen .mdl-layout__tab-bar .mdl-button {
+  display: none;
+}
+.mdl-layout:not(.is-small-screen) .mdl-layout__tab-bar,
+.mdl-layout:not(.is-small-screen) .mdl-layout__tab-bar-container {
+  overflow: visible;
+}
+.mdl-layout__tab-bar-container {
+  height: 64px;
+}
+.mdl-layout__tab-bar {
+  padding: 0;
+  padding-left: 16px;
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+}
+.mdl-layout__tab-bar .mdl-layout__tab {
+  height: 64px;
+  line-height: 64px;
+}
+.mdl-layout__tab-bar .mdl-layout__tab.is-active::after {
+  background-color: white;
+  height: 4px;
+}
+.mdl-card {
+  height: auto;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.mdl-card > * {
+  height: auto;
+}
+.mdl-card .mdl-card__supporting-text {
+  margin: 40px;
+  -webkit-flex-grow: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  padding: 0;
+  color: inherit;
+  width: calc(100% - 80px);
+}
+.mdl-demo.mdl-card__supporting-text h4 {
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+.mdl-card__actions {
+  margin: 0;
+  padding: 4px 40px;
+  color: inherit;
+}
+.mdl-card__actions a {
+  color: #00BCD4;
+  margin: 0;
+}
+.mdl-card__actions a:hover,
+.mdl-card__actions a:active {
+  color: inherit;
+  background-color: transparent;
+}
+.mdl-card__supporting-text + .mdl-card__actions {
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
+}
+#add {
+  position: absolute;
+  right: 40px;
+  top: 36px;
+  z-index: 999;
+}
+
+.mdl-layout__content section:not(:last-of-type) {
+  position: relative;
+  margin-bottom: 48px;
+}
+section.section--center {
+  max-width: 860px;
+}
+#features section.section--center {
+  max-width: 620px;
+}
+section > header{
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+section > .section__play-btn {
+  min-height: 200px;
+}
+section > header > .material-icons {
+  font-size: 3rem;
+}
+section > button {
+  position: absolute;
+  z-index: 99;
+  top: 8px;
+  right: 8px;
+}
+section .section__circle {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-justify-content: flex-start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-flex-grow: 0;
+      -ms-flex-positive: 0;
+          flex-grow: 0;
+  -webkit-flex-shrink: 1;
+      -ms-flex-negative: 1;
+          flex-shrink: 1;
+}
+section .section__text {
+  -webkit-flex-grow: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  -webkit-flex-shrink: 0;
+      -ms-flex-negative: 0;
+          flex-shrink: 0;
+  padding-top: 8px;
+}
+section .section__text h5 {
+  font-size: inherit;
+  margin: 0;
+  margin-bottom: 0.5em;
+}
+section .section__text a {
+  text-decoration: none;
+}
+section .section__circle-container > .section__circle-container__circle {
+  width: 64px;
+  height: 64px;
+  border-radius: 32px;
+  margin: 8px 0;
+}
+section.section--footer .section__circle--big {
+  width: 100px;
+  height: 100px;
+  border-radius: 50px;
+  margin: 8px 32px;
+}
+.is-small-screen section.section--footer .section__circle--big {
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+  margin: 8px 16px;
+}
+section.section--footer {
+  padding: 64px 0;
+  margin: 0 -8px -8px -8px;
+}
+section.section--center .section__text:not(:last-child) {
+  border-bottom: 1px solid rgba(0,0,0,.13);
+}
+.mdl-card .mdl-card__supporting-text > h3:first-child {
+  margin-bottom: 24px;
+}
+.mdl-layout__tab-panel:not(#overview) {
+  background-color: white;
+}
+#features section {
+  margin-bottom: 72px;
+}
+#features h4, #features h5 {
+  margin-bottom: 16px;
+}
+.toc {
+  border-left: 4px solid #C1EEF4;
+  margin: 24px;
+  padding: 0;
+  padding-left: 8px;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.toc h4 {
+  font-size: 0.9rem;
+  margin-top: 0;
+}
+.toc a {
+  color: #4DD0E1;
+  text-decoration: none;
+  font-size: 16px;
+  line-height: 28px;
+  display: block;
+}
+.mdl-menu__container {
+  z-index: 99;
+}
+</style>

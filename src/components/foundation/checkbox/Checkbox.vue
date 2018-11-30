@@ -1,5 +1,5 @@
 <template>
-  <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" :for="`checkbox-${id}`">
+  <label v-mdl class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" :for="`checkbox-${id}`">
     <input type="checkbox"
       :id="`checkbox-${id}`"
       class="mdl-checkbox__input"

@@ -1,5 +1,5 @@
 <template>
-  <div :class="['mdl-textfield', 'mdl-js-textfield',
+  <div v-mdl :class="['mdl-textfield', 'mdl-js-textfield',
     floating ? 'mdl-textfield--floating-label' : '']">
     <input class="mdl-textfield__input"
       :id="id"

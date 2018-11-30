@@ -1,6 +1,6 @@
 <template>
   <!-- Icon button -->
-  <button :id="id" class="mdl-button mdl-js-button mdl-button--icon">
+  <button v-mdl :id="id" class="mdl-button mdl-js-button mdl-button--icon">
     <i class="material-icons">{{label}}</i>
   </button>
 </template>

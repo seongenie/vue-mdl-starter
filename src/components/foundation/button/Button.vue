@@ -1,5 +1,5 @@
 <template>
-  <button
+  <button v-mdl
     :class="['mdl-button', 'mdl-js-button', 'mdl-button--raised',
       'mdl-button--colored', buttonStyle]"
     @click="click">

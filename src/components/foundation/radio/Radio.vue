@@ -1,7 +1,7 @@
 <template>
   <div class="container-radio">
     <div class="mdl-radio-item">
-      <label v-for="(item, index) in radioValue" :key="`${id}-${index}`"
+      <label v-mdl v-for="(item, index) in radioValue" :key="`${id}-${index}`"
         class="mdl-radio mdl-js-radio mdl-js-ripple-effect" :for="`${id}-${index}`">
         <input type="radio" :id="`${id}-${index}`"
           class="mdl-radio__button" :name="name" :value="item.value" :checked="item.checked">

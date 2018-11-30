@@ -1,5 +1,5 @@
 <template>
-  <div class="mdl-tooltip" :data-mdl-for="id">{{label}}</div>
+  <div v-mdl class="mdl-tooltip" :data-mdl-for="id">{{label}}</div>
 </template>
 <script>
 export default {

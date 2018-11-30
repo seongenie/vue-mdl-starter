@@ -1,5 +1,5 @@
 <template>
-<div v-if="'sdfgsd'"/>
+<div v-mdl v-if="'sdfgsd'"/>
 </template>
 <script>
 export default {

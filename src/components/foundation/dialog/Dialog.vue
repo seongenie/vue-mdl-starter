@@ -1,5 +1,5 @@
 <template>
-  <dialog class="mdl-dialog" :style="`width:${width}px; height:${height}px`">
+  <dialog v-mdl class="mdl-dialog" :style="`width:${width}px; height:${height}px`">
     <h4 class="mdl-dialog__title">{{title}}</h4>
     <div class="mdl-dialog__content">
       <slot name="content"></slot>
