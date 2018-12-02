@@ -1,6 +1,6 @@
 <template>
   <main class="mdl-layout__content">
-    <div class="mdl-layout__tab-panel is-active" id="user">
+    <div class="mdl-layout__tab-panel is-active">
        <router-view></router-view>
     </div>
   </main>

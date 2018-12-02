@@ -1,5 +1,6 @@
 <template>
   <div class="try-it-out">
+    <Card title="Spinner"><Spinner slot="content"/></Card>
     <div class="try-component"><Checkbox title="체크박스"></Checkbox></div>
     <div class="try-component"><TextField placeHolder="입력해주세요" type="text"></TextField></div>
     <div class="try-component"><Table/></div>
@@ -19,7 +20,7 @@
       </div>
     </Dialog>
     <div class="try-component"><Button title="API_GET" @onClick="getAPI"/></div>
-    <div class="try-component"><Spinner/></div>
+    <Card><Button slot="content"></Button></Card>
   </div>
 </template>
 
@@ -34,6 +35,7 @@ import Tooltip from '../foundation/tooltip/Tooltip';
 import Radio from '../foundation/radio/Radio';
 import Dialog from '../foundation/dialog/Dialog';
 import Spinner from '../foundation/spinner/Spinner';
+import Card from '../foundation/card/Card';
 import api from '../../api/Sample';
 
 export default {
@@ -48,7 +50,8 @@ export default {
     Tooltip,
     Radio,
     Dialog,
-    Spinner
+    Spinner,
+    Card
   },
   data() {
     return {

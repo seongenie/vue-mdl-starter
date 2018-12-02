@@ -5,7 +5,8 @@ import ToastUtil from './ToastUtil';
 import Constants from '../constants/Constants';
 
 const axiosInstance = axios.create({
-  baseURL: `${window.location.origin}/was`,
+  // baseURL: `${window.location.origin}/api/v1`,
+  baseURL: 'http://localhost:9292/api/v1',
   // headers: { 'X-Requested-With': Constants.XMLHttpRequest },
   paramsSerializer: params => qs.stringify(params, { allowdots: true })
 });

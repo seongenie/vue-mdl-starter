@@ -13,9 +13,12 @@ export default {
   components: { Header, Content },
   data() {
     return {
-      title: 'MDL STARTER',
-      tabs: [{ title: 'TRY', uri: '/try', active: true },
-        { title: 'LOGIn', uri: '/login' }
+      title: '맛집탐방',
+      tabs: [
+        { title: 'MANAGEMENT', uri: '/management', active: true },
+        { title: 'MAP', uri: '/map', active: false },
+        { title: 'TRY', uri: '/try', active: false },
+        { title: 'LOGIn', uri: '/login', active: false }
       ]
     };
   }

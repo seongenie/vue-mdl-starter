@@ -4,6 +4,8 @@ import Router from 'vue-router';
 // import Main from '@/components/Main';
 import Container from '../components/tryItOut/Container';
 import Login from '../components/foundation/login/Login';
+import Map from '../components/map/Map';
+import Management from '../components/taste/Management';
 
 Vue.use(Router);
 export default new Router({
@@ -12,7 +14,12 @@ export default new Router({
     {
       path: '/',
       name: 'Main',
-      redirect: 'try'
+      redirect: 'management'
+    },
+    {
+      path: '/management',
+      name: 'Management',
+      component: Management
     },
     {
       path: '/try',
@@ -23,6 +30,11 @@ export default new Router({
       path: '/login',
       name: 'Login',
       component: Login
+    },
+    {
+      path: '/map',
+      name: 'Map',
+      component: Map
     }
   ]
 });
