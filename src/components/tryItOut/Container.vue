@@ -1,26 +1,39 @@
 <template>
   <div class="try-it-out">
-    <Card title="Spinner"><Spinner slot="content"/></Card>
-    <div class="try-component"><Checkbox title="체크박스"></Checkbox></div>
-    <div class="try-component"><TextField placeHolder="입력해주세요" type="text"></TextField></div>
-    <div class="try-component"><Table/></div>
     <div class="try-component">
-      <Button title="버튼"/>
-      <Button title="툴팁" id="tooltip"/>
-      <Tooltip id="tooltip" label="This is a tooltip component"/>
+      <h3>Spinner</h3>
+      <Spinner/>
+    </div>
+    <div class="try-component">
+      <h3>Checkbox</h3>
+      <Checkbox title="Label"></Checkbox>
+    </div>
+    <div class="try-component">
+      <h3>Textfield</h3>
+      <TextField placeHolder="Input text." type="text"></TextField>
+    </div>
+    <div class="try-component"><h3>Table</h3><Table/></div>
+    <div class="try-component">
+      <h3>Button / ImageButton</h3>
+      <Button title="Button"/>
       <IconButton label="add" />
     </div>
-    <div class="try-component"><Login/></div>
-    <div class="try-component"><Radio :radioValue="radioValue" name="tryRadio"></Radio></div>
+    <div class="try-component">
+      <h3>Tooltip</h3>
+      <Button title="Tooltip" id="tooltip"/>
+      <Tooltip id="tooltip" label="This is a tooltip component"/>
+    </div>
+    <div class="try-component"><h3>Login</h3><Login/></div>
+    <div class="try-component"><h3>Radio</h3><Radio :radioValue="radioValue" name="tryRadio"></Radio></div>
     <div class="try-component"><Button title="Dialog" @onClick="showDialog"/></div>
-    <Dialog ref="dialog" title="Dialog" :width=800 :height=500>
+    <Dialog ref="dialog" title="Dialog" :width=500 :height=300>
       <div slot="content">
         <Table/>
         <Button title="닫기" @onClick="closeDialog"/>
       </div>
     </Dialog>
-    <div class="try-component"><Button title="API_GET" @onClick="getAPI"/></div>
-    <Card><Button slot="content"></Button></Card>
+    <div class="try-component"><Button title="API GET" @onClick="getAPI"/></div>
+    <div class="try-component"><Card title="Card"><div slot="content"><Button title="Close"></Button></div></Card></div>
   </div>
 </template>
 
@@ -74,6 +87,11 @@ export default {
 </script>
 
 <style>
+h3 {font-size: 15px; line-height:0px; font-weight:bold}
 .try-it-out { padding: 10px; background-color : beige}
-.try-component { padding: 15px; border-bottom: 1px solid red }
+.try-component {
+  padding: 5px; border-top: 2px solid #a35234;
+  padding-left: 15px;
+  border-left: 2px solid #a35234; border-right: 2px solid #a35234;
+}
 </style>
