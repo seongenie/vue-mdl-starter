@@ -1,7 +1,7 @@
 # Vue-mdl-starter
  > Vuejs project for start. It contains utils for rest api, spinner, toast, etc... and material designed components.
 
-  >> Example code (Required import vue components)
+## Example code (Required import vue components)
 <pre><code>
   <TextField placeHolder="Input text." type="text">
   <Button title="Button"/>
